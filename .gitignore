@@ -11,3 +11,6 @@ __pycache__
 dstc7.egg-info/*
 *.ipynb
 \.spyproject/
+pretrained_model_biolinkbert/
+datasets/
+biorex_model/
