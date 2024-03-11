@@ -1379,7 +1379,11 @@ if __name__ == '__main__':
         out_test_tsv_file     = options.out_tsv_file
         has_end_tag           = True
         re_id_spliter_str     = r'[\,\;]'
-        normalized_type_dict  = {'SequenceVariant':'GeneOrGeneProduct'}
+        normalized_type_dict  = {
+            'SequenceVariant': 'GeneOrGeneProduct',
+            'Gene': 'GeneOrGeneProduct',
+            'Disease': 'DiseaseOrPhenotypicFeature'
+        }
         task_tag    = '[Litcoin]'
         
         src_tgt_pairs = set(
