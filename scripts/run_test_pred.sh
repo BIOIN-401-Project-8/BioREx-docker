@@ -4,7 +4,7 @@ in_pubtator_file="input.pubtator"
 out_tsv_file="out_processed.tsv"
 out_pubtator_file="predict.pubtator"
 
-pre_train_model="pretrained_model"
+pre_train_model="pretrained_model_biolinkbert"
 
 echo 'Converting the dataset into BioREx input format'
 
@@ -32,7 +32,7 @@ cuda_visible_devices=$cuda_visible_devices python src/run_ncbi_rel_exp.py \
   --save_steps 10 \
   --overwrite_output_dir \
   --max_seq_length 512
-  
+
 cp "biorex_model/test_results.tsv" "out_biorex_results.tsv"
 
 python src/utils/run_pubtator_eval.py --exp_option 'to_pubtator' \
@@ -40,4 +40,3 @@ python src/utils/run_pubtator_eval.py --exp_option 'to_pubtator' \
   --in_test_tsv_file "${out_tsv_file}" \
   --in_pred_tsv_file "out_biorex_results.tsv" \
   --out_pred_pubtator_file "${out_pubtator_file}"
-  
