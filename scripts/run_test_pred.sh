@@ -1,8 +1,8 @@
 #!/bin/bash
 
-in_pubtator_file="input.pubtator"
+in_pubtator_file=$1
 out_tsv_file="out_processed.tsv"
-out_pubtator_file="predict.pubtator"
+out_pubtator_file=$2
 
 pre_train_model="pretrained_model_biolinkbert"
 
@@ -13,7 +13,7 @@ python src/dataset_format_converter/convert_pubtator_2_tsv.py \
     --in_pubtator_file ${in_pubtator_file} \
     --out_tsv_file ${out_tsv_file}
 
-cuda_visible_devices=$1
+cuda_visible_devices=$3
 
 echo 'Generating RE predictions'
 cuda_visible_devices=$cuda_visible_devices python src/run_ncbi_rel_exp.py \
